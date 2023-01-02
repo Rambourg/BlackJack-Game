@@ -8,10 +8,9 @@
 // else ->"You're out of the game"
 //create a variable called isAlive and assign it to true
 // flip is value to false in the appropriate code block
-
 let firstCard = 10
-
-let secondCard = 11
+let secondCard = 9
+let cards = [firstCard, secondCard]
 
 let sum = firstCard + secondCard 
 
@@ -21,18 +20,27 @@ let isAlive = true
 
 let message = ""
 
-let messageEl = document.getElementById("message-el")
+let messageEl = document.getElementById("message-El")
 console.log(messageEl)
 
-let sumel = document.getElementById("sum-el")
-console.log(sumel)
+let sumEl = document.getElementById("sum-El")
+console.log(sumEl)
 
-let cardsel = document.getElementById("cards-el")
-console.log(cardsel)
+let cardsEl = document.getElementById("cards-El")
+console.log(cardsEl)
 
-function startGame() {
-    cardsel.textContent = "Cards: " + firstCard + " " + secondCard
-    sumel.textContent = "Sum: " + sum
+function startGame(){
+    renderGame()
+}
+
+function renderGame() {
+    cardsEl.textContent = "Cards: " 
+//create a for loop that renders out all the cards instead of just two
+for (let i = 0; i < cards.length; i ++){
+    cardsEl.textContent += cards[i] + " "
+}
+
+    sumEl.textContent = "Sum: " + sum
     if (sum <= 21) {
         message = "Do you want to draw a new card?"
     }
@@ -51,13 +59,17 @@ function startGame() {
 function newCard() {
     console.log("Drawing a new card from the deck!")
 
-    let card = 20
+    let card = 4
 
     sum += card
+    cards.push(card)
+    console.log(cards)
     
-    startGame()
+    renderGame()
   
 }
+
+
 
 
 
